@@ -1,37 +1,41 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+using static System.Net.Mime.MediaTypeNames;
 
 class Program
 {
     static void Main()
     {
         bool check = false;
-        int n = 0;       
+        int n = 0;
         check = false;
-        int[] sequenza = new int[n];
-        int[] conteggio = new int[n];
         string again = "-";
+        Console.Write("Inserisci la lunghezza del vettore: ");
+        while (check == false)
+        {
+            check = int.TryParse(Console.ReadLine(), out n);
+            if (check == false)
+                Console.WriteLine("Valore non valido");
+        }
+        int[] conteggio = new int[10];
+        int[] sequenza = new int[n];
         do
         {
-            Console.Write("Inserisci la lunghezza del vettore: ");
-            while (check == false)
-            {
-                check = int.TryParse(Console.ReadLine(), out n);
-                if (check == false)
-                    Console.WriteLine("Valore non valido");
-            }
+            check = false;
             GeneraNumeriCasuali(ref sequenza);
-            Console.Write($"Numeri casuali generati: [");
-            for (int i= 0; i<sequenza.Length-1;i++)
+            Console.Write($"\n\nNumeri casuali generati: [");
+            for (int i = 0; i < sequenza.Length-1; i++)
                 Console.Write($"{sequenza[i]}, ");
-            Console.Write(sequenza[sequenza.Length]);
+            Console.Write($"{sequenza[sequenza.Length-1]}]\n\n");
             AggiornaConteggioOccorrenze(sequenza, ref conteggio);
             StampaConteggio(conteggio);
             Console.Write("Generare nuovi numeri? (Si/No): ");
             do
             {
-                again = toString(Console.ReadLine());
+                again = (Console.ReadLine());
+                again.ToString();
             }
-            while (again != "si" || again != "Si" || again != "No" || again != "no");
+            while (again != "si" && again != "Si" && again != "No" && again != "no");
+            if (again == "no" || again == "No")
+                check = true;
         }
         while (check == false);
     }
@@ -52,7 +56,8 @@ class Program
     static void StampaConteggio(int[] v)
     {
         for (int i = 0; i < v.Length; i++)
-            if (v[i] != 0)
+            if (v[i]!=0)
                 Console.Write($"Numero {i}: {v[i]}\n");
+        Console.WriteLine();
     }
 }
