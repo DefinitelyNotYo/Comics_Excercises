@@ -17,7 +17,8 @@ class program
         Sam.AddItem("spray al peperoncino");
         WelcomeMessage();
         Commands();
-        Console.ForegroundColor = ConsoleColor.Green;Console.WriteLine("-------------------- Capitolo 1 --------------------");Console.ResetColor();
+        Console.WriteLine("Inserisci un valore qualsiasi o premi invio per iniziare la partita"); Console.ReadLine();
+        Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("-------------------- Capitolo 1 --------------------"); Console.ResetColor();
         Console.WriteLine("Valery, 18:53");
         Valery.ChapterOne(Alan, Caleb, Kaitlyn, Sam, Valery);
     }
@@ -200,9 +201,9 @@ class program
                         RemoveItem(itemGive);
                         break;
                     }
-                if(found == false)
+                if (found == false)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("\nOggetto inesistente... INSERISCI un oggetto valido\n\n"); Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("\nOggetto inesistente... inserisci un oggetto valido\n"); Console.ResetColor();
                 }
             }
             found = false;
@@ -231,7 +232,7 @@ class program
         public void Investigate(Personaggio p1, Personaggio p2, Personaggio p3, Personaggio p4, Personaggio p5)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("---------- Hai trovato i seguenti oggetti ----------");
+            Console.WriteLine("\n---------- Hai trovato i seguenti oggetti ----------");
             Console.ResetColor();
             Console.Write($"\n{p1.Name}: ");
             for (int i = 0; i < p1.inventario.Length; i++)
@@ -339,17 +340,17 @@ class program
                         break;
                 }
             string yesOrNot = "-";
-            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("\nVuoi esaminare altri oggetti? (si/no)"); Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Green; Console.Write("\nVuoi esaminare altri oggetti? (si/no) "); Console.ResetColor();
             yesOrNot = Console.ReadLine();
             while (yesOrNot != "no" && yesOrNot != "si") //va sistemato il controllo
             {
-                Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("\nInserisci un valore valido '(si/no)'"); Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Red; Console.Write("\nInserisci un valore valido '(si/no)' "); Console.ResetColor();
                 yesOrNot = Console.ReadLine();
             }
             if (yesOrNot == "si")
                 Investigate(p1, p2, p3, p4, p5);
             Console.ResetColor();
-
+            Console.WriteLine();
         }
         public Personaggio CheckPartyMember(Personaggio p1, Personaggio p2, Personaggio p3, Personaggio p4, Personaggio p5) //si accerta che i personaggi intenti a scambiare esistano e siano insieme
         {
@@ -366,7 +367,7 @@ class program
                         break;
                     }
                 if (found == false)
-                    Console.ForegroundColor = ConsoleColor.Red;Console.WriteLine("\nQuesto personaggio non esiste o al momento non è disponibile. Inserisci un personaggio valido.\n");Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("\nQuesto personaggio non esiste o al momento non è disponibile. Inserisci un personaggio valido.\n"); Console.ResetColor();
             }
             if (p1.Name == thisOne)
                 return p1;
@@ -383,6 +384,7 @@ class program
         {
             ShowParty();
             SwapItems(CheckPartyMember(p1, p2, p3, p4, p5));
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("Scambio avvenuto correttamente\n"); Console.ResetColor();
         }
         public void ChapterOne(Personaggio p1, Personaggio p2, Personaggio p3, Personaggio p4, Personaggio p5)
         {
@@ -400,9 +402,9 @@ class program
                 "Caleb: *le fa il verso* «Smettila di fare lo stronzo»\n\n" +
                 "Alan: «Potete smetterla adesso, sta tornando la vostra babysitter. Kaitlyn! Kaitlyn!»\n\n" +
                 "*Kaitlyn, con un'espressione più scocciata di quella che aveva quando si è allontanata, torna al tavolino dove il resto del gruppo si è accomodato.*\n\n" +
-                "Kaitlyn: «Qualsiasi cosa tu voglia, Alan, non ora. Ho una notizia buona e una di merda, cosa volete sentire prima?»\n\n");               
+                "Kaitlyn: «Qualsiasi cosa tu voglia, Alan, non ora. Ho una notizia buona e una di merda, cosa volete sentire prima?»\n\n");
             Console.ResetColor();
-            Console.WriteLine("Inserisci un valore qualsiasi o premi invio per visualizzare il menù di scelta");Console.ReadLine();
+            Console.WriteLine("Inserisci un valore qualsiasi o premi invio per visualizzare il menù di scelta"); Console.ReadLine();
             Console.WriteLine("1 - La buona notizia");
             Console.WriteLine("2 - La notizia di merda\n");
             string path = "-";
@@ -555,7 +557,7 @@ class program
                 p5.AddItem("fazzoletti");
             Console.ResetColor();
             if (AskFindItem("fazzoletti"))
-                Console.WriteLine("1 - (fazzoletti) Pulisci sul tavolo");
+                Console.WriteLine("1 - (fazzoletti) Pulisci sul tavolo\n");
             string path = "-";
             bool found = false;
             while (found == false)
@@ -573,7 +575,7 @@ class program
                         }
                         break;
                     case "scambia":
-                        Trade(p1,p2,p3,p4,p5);
+                        Trade(p1, p2, p3, p4, p5);
                         break;
                     case "butta":
                         AskRemoveItem();
