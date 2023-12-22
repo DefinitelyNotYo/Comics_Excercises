@@ -294,7 +294,7 @@ internal class Program
         Square j7 = new Square("j7", "             ", "             ", "             ");
         Square j8 = new Square("j8", "             ", "             ", "             ");
         Square j9 = new Square("j9", "             ", "             ", "             ");
-        Square j10 = new Square("j10", "             ", "             ", "             "); 
+        Square j10 = new Square("j10", "             ", "             ", "             ");
 
         Square command1 = new Square("command1", "   evoca     ", "   unità     ");
         Square command2 = new Square("command2", " seleziona   ", " unità       ");
@@ -421,7 +421,7 @@ internal class Program
                     break;
                 case "passa turno":
                     break;
-                default: 
+                default:
                     break;
             }
         }
@@ -453,7 +453,7 @@ internal class Program
                 Console.ReadLine();
                 break;
             case "summon":
-                if(idplayer == "1")
+                if (idplayer == "1")
                 {
                     for (int i = 0; i < tabellone.GetLength(0); i++)  //scorre le righe
                     {
@@ -542,7 +542,7 @@ internal class Program
                     }
                 }
                 Console.ReadLine();
-            break;
+                break;
         }
 
     }
@@ -564,7 +564,7 @@ internal class Program
             {
                 var rdm = new Random();
                 int indexPool = rdm.Next(p.pool.Count - 2);
-             //   p.hand[i] = p.pool[indexPool];
+                //   p.hand[i] = p.pool[indexPool];
                 p.pool.Remove(p.pool[indexPool]);
             }
             else
@@ -616,4 +616,4 @@ internal class Program
         else
             return 500;
     }
-}
+}//editato il 22/12 17:10
