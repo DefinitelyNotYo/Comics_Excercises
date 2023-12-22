@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+using System.ComponentModel;
+using System.Security.Cryptography;
 
 internal class Program
 {
@@ -9,15 +10,15 @@ internal class Program
         newGame();
     }
 
-    class Square
+    public class Square
     {
         public string coordinate { get; set; }           //il nome della casella?
         public string top { get; set; }                   //le tre parti di una casella
         public string mid { get; set; }
         public string bot { get; set; }
         public bool occupied { get; set; }               //indica se la casella è occupata
-        public bool lighted {get; set;}                 //indica se la casella deve essere evidenziata
-        public Square( string coordinateBox, string topSquare, string midSquare, string botSquare) //costruttore della classe casella, questo iipo viene usato per il campo
+        public bool lighted { get; set; }                 //indica se la casella deve essere evidenziata
+        public Square(string coordinateBox, string topSquare, string midSquare, string botSquare) //costruttore della classe casella, questo iipo viene usato per il campo
         {
             coordinate = coordinateBox;
             top = topSquare;
@@ -31,14 +32,14 @@ internal class Program
             bot = botSquare;
         }
     }
-    class Unit
+    public class Unit
     {
-        public string coordinate {get; set;}
+        public string coordinate { get; set; }
         public string identity { get; set; } //identifica la classe dell'unità di cui si sta parlando
         public string idUnit { get; set; } //Identifica l'appartenenza a un giocatore
         public string name1 { get; set; } //prima riga del nome
         public string name2 { get; set; } //seconda riga del nome
-        public int currentHealth {get; set;} //hp attuali
+        public int currentHealth { get; set; } //hp attuali
         public int maxHealth { get; set; } //hp massimi
         public int maxAttack { get; set; } //danni massimi
         public int minAttack { get; set; } //danni minimi
@@ -49,26 +50,68 @@ internal class Program
             switch (identity)
             {
                 case " ":
+                    name1 = "             ";
                     break;
                 case "sgorbio":
+                    name1 = "   Sgorbio   ";
+                    name2 = "             ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 5;
+                    manaCost = 50;
                     break;
                 case "lancia ciottoli":
+                    name1 = "   Lancia    ";
+                    name2 = "  Ciottoli   ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 5;
+                    manaCost = 75;
                     break;
                 case "cavalca pony":
+                    name1 = "   Cavalca   ";
+                    name2 = "    Pony     ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 5;
+                    manaCost = 100;
                     break;
                 case "sciamano goblin":
+                    name1 = "  Sciamano   ";
+                    name2 = "   Goblin    ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 1;
+                    manaCost = 150;
                     break;
                 case "ogre":
+                    name1 = "    Ogre     ";
+                    name2 = "             ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 1;
+                    manaCost = 200;
                     break;
                 case "generale goblin":
+                    name1 = "  Generale   ";
+                    name2 = "   Goblin    ";
+                    currentHealth = 10;
+                    maxHealth = 10;
+                    maxAttack = 15;
+                    minAttack = 5;
+                    manaCost = 1001;
                     break;
             }
         }
     }
-
-    class Player
+    public class Player
     {
-        
+
         public string id { get; set; } //Identifica il giocatore, quindi giocatore 1 o giocatore 2
         public int manaLeft { get; set; } //Risorse del giocatore
         public int manaSpentThisTurn { get; set; }
@@ -138,10 +181,11 @@ internal class Program
     }
     public static void newGame()
     {
+        Player player1 = new Player("1");
+        Player player2 = new Player("2");
+        shuffle(player1);
+        shuffle(player2);
 
-        int currentHp = 10;
-        int maxHp = 20;
-        string hp = $"   Hp: {currentHp}/{maxHp}   ";
         Square a1 = new Square("a1", "             ", "             ", "             ");
         Square a2 = new Square("a2", "             ", "             ", "             ");
         Square a3 = new Square("a3", "             ", "             ", "             ");
@@ -162,7 +206,7 @@ internal class Program
         Square b7 = new Square("b7", "             ", "             ", "             ");
         Square b8 = new Square("b8", "             ", "             ", "             ");
         Square b9 = new Square("b9", "             ", "             ", "             ");
-        Square b10 = new Square("b10", "             ", "             ", "            ");
+        Square b10 = new Square("b10", "             ", "             ", "             ");
 
         Square c1 = new Square("c1", "             ", "             ", "             ");
         Square c2 = new Square("c2", "             ", "             ", "             ");
@@ -173,7 +217,7 @@ internal class Program
         Square c7 = new Square("c7", "             ", "             ", "             ");
         Square c8 = new Square("c8", "             ", "             ", "             ");
         Square c9 = new Square("c9", "             ", "             ", "             ");
-        Square c10 = new Square("c10", "             ", "             ", "            ");
+        Square c10 = new Square("c10", "             ", "             ", "             ");
 
         Square d1 = new Square("d1", "             ", "             ", "             ");
         Square d2 = new Square("d2", "             ", "             ", "             ");
@@ -184,7 +228,7 @@ internal class Program
         Square d7 = new Square("d7", "             ", "             ", "             ");
         Square d8 = new Square("d8", "             ", "             ", "             ");
         Square d9 = new Square("d9", "             ", "             ", "             ");
-        Square d10 = new Square("d10", "             ", "             ", "            ");
+        Square d10 = new Square("d10", "             ", "             ", "             ");
 
         Square e1 = new Square("e1", "             ", "             ", "             ");
         Square e2 = new Square("e2", "             ", "             ", "             ");
@@ -195,7 +239,7 @@ internal class Program
         Square e7 = new Square("e7", "             ", "             ", "             ");
         Square e8 = new Square("e8", "             ", "             ", "             ");
         Square e9 = new Square("e9", "             ", "             ", "             ");
-        Square e10 = new Square("e10", "             ", "             ", "            ");
+        Square e10 = new Square("e10", "             ", "             ", "             ");
 
         Square f1 = new Square("f1", "             ", "             ", "             ");
         Square f2 = new Square("f2", "             ", "             ", "             ");
@@ -206,7 +250,7 @@ internal class Program
         Square f7 = new Square("f7", "             ", "             ", "             ");
         Square f8 = new Square("f8", "             ", "             ", "             ");
         Square f9 = new Square("f9", "             ", "             ", "             ");
-        Square f10 = new Square("f10", "             ", "             ", "            ");
+        Square f10 = new Square("f10", "             ", "             ", "             ");
 
         Square g1 = new Square("g1", "             ", "             ", "             ");
         Square g2 = new Square("g2", "             ", "             ", "             ");
@@ -217,7 +261,7 @@ internal class Program
         Square g7 = new Square("g7", "             ", "             ", "             ");
         Square g8 = new Square("g8", "             ", "             ", "             ");
         Square g9 = new Square("g9", "             ", "             ", "             ");
-        Square g10 = new Square("g10", "             ", "             ", "            ");
+        Square g10 = new Square("g10", "             ", "             ", "             ");
 
         Square h1 = new Square("h1", "             ", "             ", "             ");
         Square h2 = new Square("h2", "             ", "             ", "             ");
@@ -228,7 +272,7 @@ internal class Program
         Square h7 = new Square("h7", "             ", "             ", "             ");
         Square h8 = new Square("h8", "             ", "             ", "             ");
         Square h9 = new Square("h9", "             ", "             ", "             ");
-        Square h10 = new Square("h10", "             ", "             ", "            ");
+        Square h10 = new Square("h10", "             ", "             ", "             ");
 
         Square i1 = new Square("i1", "             ", "             ", "             ");
         Square i2 = new Square("i2", "             ", "             ", "             ");
@@ -239,7 +283,7 @@ internal class Program
         Square i7 = new Square("i7", "             ", "             ", "             ");
         Square i8 = new Square("i8", "             ", "             ", "             ");
         Square i9 = new Square("i9", "             ", "             ", "             ");
-        Square i10 = new Square("i10", "             ", "             ", "            ");
+        Square i10 = new Square("i10", "             ", "             ", "             ");
 
         Square j1 = new Square("j1", "             ", "             ", "             ");
         Square j2 = new Square("j2", "             ", "             ", "             ");
@@ -250,7 +294,7 @@ internal class Program
         Square j7 = new Square("j7", "             ", "             ", "             ");
         Square j8 = new Square("j8", "             ", "             ", "             ");
         Square j9 = new Square("j9", "             ", "             ", "             ");
-        Square j10 = new Square("j10", "             ", "             ", "            ");
+        Square j10 = new Square("j10", "             ", "             ", "             "); 
 
         Square command1 = new Square("command1", "   evoca     ", "   unità     ");
         Square command2 = new Square("command2", " seleziona   ", " unità       ");
@@ -259,13 +303,15 @@ internal class Program
         Square command5 = new Square("command5", " mostra      ", " manuale     ");
         Square command6 = new Square("command6", " passa       ", " turno       ");
 
-        string[] display = {"Mossa:", "Indica la casella dove vuoi posizionare l'unità (Es. a1, g7, c5):" };
+        string[] display = { "Mossa:", "Indica la casella dove vuoi posizionare l'unità (Es. a1, g7, c5):" };
+        bool win1 = false;
+        bool win2 = false;
         int round = 0;
         var rdm = new Random();
         int playerplaying = rdm.Next(1, 2);
 
         //PUNTATORI DEL CAMPO DI GIOCO v
-         Square[,] battlecamp = new Square[10, 10] {
+        Square[,] battlecamp = new Square[10, 10] {
             { a1, b1, c1, d1, e1, f1, g1, h1, i1, j1 },
             { a2, b2, c2, d2, e2, f2, g2, h2, i2, j2 },
             { a3, b3, c3, d3, e3, f3, g3, h3, i3, j3 },
@@ -353,39 +399,154 @@ internal class Program
             { "             ","             ","             ","             ",  command1.top ,  command2.top ,  command3.top ,  command4.top ,  command5.top ,  command6.top ,"             ","             ","             ","             "},
             { "             ","             ","             ","             ",  command1.bot ,  command2.bot ,  command3.bot ,  command4.bot ,  command5.bot ,  command6.bot ,"             ","             ","             ","             "},
             { "             ","             ","             ","             ","             ","             ","             ","             ","             ","             ","             ","             ","             ","             "},
-            { "             ","             ","             ","       ","","","","","","","","","",display[1]}
+            { "             ","             ","             ","       ","","","","","","","","","",display[0]}
         };
 
-        showGame(wholeTable);
-        string cazzotifermi = Console.ReadLine();
-        Console.Write("popipepa ");
-        Console.Write(round);
-        Console.Write(cazzotifermi);
-        Console.Write(" pupapepi");
-    }
-    public static void showGame(string[,] tabellone)
-    {
-        for (int i = 0; i < tabellone.GetLength(0); i++)  //scorre le righe
+        while (win1 == false || win2 == false) //finché la partita non è vinta
         {
-            for (int j = 0; j < tabellone.GetLength(1); j++) //scorre le colonne
+            round++;
+            showGame(wholeTable, "0", /*playerplaying.ToString()*/"1", battlecamp);
+            string input = Console.ReadLine();
+            switch (input) //input menù di gioco
             {
-                /*     //colora la singola casella di rosso
-                if (i == 1 && j == 2)
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.Write($"{tabellone[i, j]} ");
-                    Console.ResetColor();
-                }
-                else
-                */
-                Console.Write($"{tabellone[i, j]} ");
+                case "evoca unità":
+                    break;
+                case "seleziona unità":
+                    break;
+                case "rimescola mano":
+                    break;
+                case "esamina casella":
+                    break;
+                case "mostra manuale":
+                    break;
+                case "passa turno":
+                    break;
+                default: 
+                    break;
             }
-            if(i<tabellone.GetLength(0)-1)
-                Console.WriteLine();
         }
-        Console.ReadLine();
+
     }
-    static void shuffle(Player p) //rimescola la mano e pesca 5 nuove unità
+    public static void showGame(string[,] tabellone, string call, string idplayer, Square[,] battlecamp)
+    {
+        switch (call)
+        {
+            case "0":
+                for (int i = 0; i < tabellone.GetLength(0); i++)  //scorre le righe
+                {
+                    for (int j = 0; j < tabellone.GetLength(1); j++) //scorre le colonne
+                    {
+                        //colora la singola casella di rosso
+                        if ((i == 5 && j == 2) || (i == 6 && j == 2) || (i == 7 && j == 2))
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.Write($"{tabellone[i, j]} ");
+                            Console.ResetColor();
+                        }
+                        else
+
+                            Console.Write($"{tabellone[i, j]} ");
+                    }
+                    if (i < tabellone.GetLength(0) - 1)
+                        Console.WriteLine();
+                }
+                Console.ReadLine();
+                break;
+            case "summon":
+                if(idplayer == "1")
+                {
+                    for (int i = 0; i < tabellone.GetLength(0); i++)  //scorre le righe
+                    {
+                        for (int j = 0; j < tabellone.GetLength(1); j++) //scorre le colonne
+                        {
+                            //colora la singola casella di verde
+                            if (
+                                ((i == 5 && j == 2) || (i == 6 && j == 2) || (i == 7 && j == 2)) && battlecamp[0, 0].occupied == false || // A1
+                                ((i == 5 && j == 3) || (i == 6 && j == 3) || (i == 7 && j == 3)) && battlecamp[0, 1].occupied == false || // B1
+                                ((i == 5 && j == 4) || (i == 6 && j == 4) || (i == 7 && j == 4)) && battlecamp[0, 2].occupied == false || // C1
+                                ((i == 5 && j == 5) || (i == 6 && j == 5) || (i == 7 && j == 5)) && battlecamp[0, 3].occupied == false || // D1
+                                ((i == 5 && j == 6) || (i == 6 && j == 6) || (i == 7 && j == 6)) && battlecamp[0, 4].occupied == false || // E1
+                                ((i == 5 && j == 7) || (i == 6 && j == 7) || (i == 7 && j == 7)) && battlecamp[0, 5].occupied == false || // F1
+                                ((i == 5 && j == 8) || (i == 6 && j == 8) || (i == 7 && j == 8)) && battlecamp[0, 6].occupied == false || // G1
+                                ((i == 5 && j == 9) || (i == 6 && j == 9) || (i == 7 && j == 9)) && battlecamp[0, 7].occupied == false || // H1
+                                ((i == 5 && j == 10) || (i == 6 && j == 10) || (i == 7 && j == 10)) && battlecamp[0, 8].occupied == false || // I1
+                                ((i == 5 && j == 11) || (i == 6 && j == 11) || (i == 7 && j == 11)) && battlecamp[0, 9].occupied == false || // J1
+
+                                ((i == 11 && j == 2) || (i == 9 && j == 2) || (i == 10 && j == 2)) && battlecamp[1, 0].occupied == false || // A2
+                                ((i == 11 && j == 3) || (i == 9 && j == 3) || (i == 10 && j == 3)) && battlecamp[1, 1].occupied == false || // B2
+                                ((i == 11 && j == 4) || (i == 9 && j == 4) || (i == 10 && j == 4)) && battlecamp[1, 2].occupied == false || // C2
+                                ((i == 11 && j == 5) || (i == 9 && j == 5) || (i == 10 && j == 5)) && battlecamp[1, 3].occupied == false || // D2
+                                ((i == 11 && j == 6) || (i == 9 && j == 6) || (i == 10 && j == 6)) && battlecamp[1, 4].occupied == false || // E2
+                                ((i == 11 && j == 7) || (i == 9 && j == 7) || (i == 10 && j == 7)) && battlecamp[1, 5].occupied == false || // F2
+                                ((i == 11 && j == 8) || (i == 9 && j == 8) || (i == 10 && j == 8)) && battlecamp[1, 6].occupied == false || // G2
+                                ((i == 11 && j == 9) || (i == 9 && j == 9) || (i == 10 && j == 9)) && battlecamp[1, 7].occupied == false || // H2 
+                                ((i == 11 && j == 10) || (i == 9 && j == 10) || (i == 10 && j == 10)) && battlecamp[1, 8].occupied == false || // I2
+                                ((i == 11 && j == 11) || (i == 9 && j == 11) || (i == 10 && j == 11)) && battlecamp[1, 9].occupied == false    // J2
+                               )
+                            {
+                                Console.BackgroundColor = ConsoleColor.Green;
+                                Console.Write($"{tabellone[i, j]} ");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                Console.ResetColor();
+                                Console.Write($"{tabellone[i, j]} ");
+                            }
+                        }
+                        if (i < tabellone.GetLength(0) - 1)
+                            Console.WriteLine();
+                    }
+                }
+                else //caselle disponibili per l'evocazione del giocatore 2
+                {
+                    for (int i = 0; i < tabellone.GetLength(0); i++)  //scorre le righe
+                    {
+                        for (int j = 0; j < tabellone.GetLength(1); j++) //scorre le colonne
+                        {
+                            //colora la singola casella di verde
+                            if (
+                                ((i == 38 && j == 2) || (i == 39 && j == 2) || (i == 37 && j == 2)) && battlecamp[8, 0].occupied == false ||
+                                ((i == 38 && j == 3) || (i == 39 && j == 3) || (i == 37 && j == 3)) && battlecamp[8, 1].occupied == false ||
+                                ((i == 38 && j == 4) || (i == 39 && j == 4) || (i == 37 && j == 4)) && battlecamp[8, 2].occupied == false ||
+                                ((i == 38 && j == 5) || (i == 39 && j == 5) || (i == 37 && j == 5)) && battlecamp[8, 3].occupied == false ||
+                                ((i == 38 && j == 6) || (i == 39 && j == 6) || (i == 37 && j == 6)) && battlecamp[8, 4].occupied == false ||
+                                ((i == 38 && j == 7) || (i == 39 && j == 7) || (i == 37 && j == 7)) && battlecamp[8, 5].occupied == false ||
+                                ((i == 38 && j == 8) || (i == 39 && j == 8) || (i == 37 && j == 8)) && battlecamp[8, 6].occupied == false ||
+                                ((i == 38 && j == 9) || (i == 39 && j == 9) || (i == 37 && j == 9)) && battlecamp[8, 7].occupied == false ||
+                                ((i == 38 && j == 10) || (i == 39 && j == 10) || (i == 37 && j == 10)) && battlecamp[8, 8].occupied == false ||
+                                ((i == 38 && j == 11) || (i == 39 && j == 11) || (i == 37 && j == 11)) && battlecamp[8, 9].occupied == false ||
+
+                                ((i == 41 && j == 2) || (i == 43 && j == 2) || (i == 42 && j == 2)) && battlecamp[9, 0].occupied == false ||
+                                ((i == 41 && j == 3) || (i == 43 && j == 3) || (i == 42 && j == 3)) && battlecamp[9, 1].occupied == false ||
+                                ((i == 41 && j == 4) || (i == 43 && j == 4) || (i == 42 && j == 4)) && battlecamp[9, 2].occupied == false ||
+                                ((i == 41 && j == 5) || (i == 43 && j == 5) || (i == 42 && j == 5)) && battlecamp[9, 3].occupied == false ||
+                                ((i == 41 && j == 6) || (i == 43 && j == 6) || (i == 42 && j == 6)) && battlecamp[9, 4].occupied == false ||
+                                ((i == 41 && j == 7) || (i == 43 && j == 7) || (i == 42 && j == 7)) && battlecamp[9, 5].occupied == false ||
+                                ((i == 41 && j == 8) || (i == 43 && j == 8) || (i == 42 && j == 8)) && battlecamp[9, 6].occupied == false ||
+                                ((i == 41 && j == 9) || (i == 43 && j == 9) || (i == 42 && j == 9)) && battlecamp[9, 7].occupied == false ||
+                                ((i == 41 && j == 10) || (i == 43 && j == 10) || (i == 42 && j == 10)) && battlecamp[9, 8].occupied == false ||
+                                ((i == 41 && j == 11) || (i == 43 && j == 11) || (i == 42 && j == 11)) && battlecamp[9, 9].occupied == false
+                               )
+                            {
+                                Console.BackgroundColor = ConsoleColor.Green;
+                                Console.Write($"{tabellone[i, j]} ");
+                                Console.ResetColor();
+                            }
+                            else
+
+                                Console.Write($"{tabellone[i, j]} ");
+                        }
+                        if (i < tabellone.GetLength(0) - 1)
+                            Console.WriteLine();
+                    }
+                }
+                Console.ReadLine();
+            break;
+        }
+
+    }
+    public static void shuffle(Player p) //rimescola la mano e pesca 5 nuove unità
     {
         while (p.hand.Count != 0) //svuota la mano rimettendo tutte le unità nella pool, tranne quelle "unità esaurite" che invece vengono eliminate
         {
@@ -403,7 +564,7 @@ internal class Program
             {
                 var rdm = new Random();
                 int indexPool = rdm.Next(p.pool.Count - 2);
-                p.hand[i] = p.pool[indexPool];
+             //   p.hand[i] = p.pool[indexPool];
                 p.pool.Remove(p.pool[indexPool]);
             }
             else
@@ -412,30 +573,22 @@ internal class Program
             }
         }
     }
-    static void summon(Player p, int round, ref Square[,] battlecamp)
+    static void summon(Player p, int round, ref Square[,] battlecamp, ref string[,] wholetable)
     {
         bool found = false;
-        while(found == false)
+        while (found == false)
         {
             string unitName = Console.ReadLine();
-            for(int i = 0; i < p.hand.Count; i++)
-            {          //controlla che l'unità sia presente nella mano del giocatore && che il mana residuo del giocatore sia sufficiente && che il costo dell'evocazione non ecceda dal mana massimo spendibile per turno
-                if(unitName == p.hand[i].identity && p.manaLeft - p.hand[i].manaCost > 0 && maxManaPerTurn(round) - p.manaSpentThisTurn + p.hand[i].manaCost > 0) 
-                {
-                    if(p.id == "1")
-                    {
-                        for(int ij = 0; ij < 2; ij++) //sonda le prime due righe
-                        {
-                            for(int jj = 0; jj < battlecamp.GetLength(1); jj++)  //sonda tutte le colonne
-                            {
-                                if (battlecamp[ij, jj].occupied == false)
-                                    battlecamp[ij, jj].lighted = true;
-                            }
-                        }
 
+            for (int i = 0; i < p.hand.Count; i++)
+            {          //controlla che l'unità sia presente nella mano del giocatore && che il mana residuo del giocatore sia sufficiente && che il costo dell'evocazione non ecceda dal mana massimo spendibile per turno
+                if (unitName == p.hand[i].identity && p.manaLeft - p.hand[i].manaCost > 0 && maxManaPerTurn(round) - p.manaSpentThisTurn + p.hand[i].manaCost > 0)
+                {
+                    if (p.id == "1")  //svolge questo solo per il giocatore 1
+                    {
 
                     }
-                    if(p.id == "2")
+                    if (p.id == "2")   //svolge questo solo per il giocatore 2
                     {
                         for (int ij = 9; ij > 7; ij--) //sonda le ultime due righe
                         {
@@ -445,9 +598,7 @@ internal class Program
                                     battlecamp[ij, jj].lighted = true;
                             }
                         }
-
                     }
-
                     p.field.Add(p.hand[i]);
                     p.hand.Remove(p.hand[i]);
                     p.hand.Add(p.pool[20]);
