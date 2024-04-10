@@ -1,0 +1,14 @@
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\bin\Debug\net8.0\Strategico - Senza nome - WIP.exe
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\bin\Debug\net8.0\Strategico - Senza nome - WIP.deps.json
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\bin\Debug\net8.0\Strategico - Senza nome - WIP.runtimeconfig.json
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\bin\Debug\net8.0\Strategico - Senza nome - WIP.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\bin\Debug\net8.0\Strategico - Senza nome - WIP.pdb
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.AssemblyInfoInputs.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.AssemblyInfo.cs
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.csproj.CoreCompileInputs.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\refint\Strategico - Senza nome - WIP.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.pdb
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\Strategico - Senza nome - WIP.genruntimeconfig.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Strategico - Senza nome - WIP\obj\Debug\net8.0\ref\Strategico - Senza nome - WIP.dll

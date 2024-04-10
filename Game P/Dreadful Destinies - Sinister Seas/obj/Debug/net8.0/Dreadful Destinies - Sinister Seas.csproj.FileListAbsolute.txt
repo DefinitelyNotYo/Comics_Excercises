@@ -1,0 +1,14 @@
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\bin\Debug\net8.0\Dreadful Destinies - Sinister Seas.exe
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\bin\Debug\net8.0\Dreadful Destinies - Sinister Seas.deps.json
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\bin\Debug\net8.0\Dreadful Destinies - Sinister Seas.runtimeconfig.json
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\bin\Debug\net8.0\Dreadful Destinies - Sinister Seas.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\bin\Debug\net8.0\Dreadful Destinies - Sinister Seas.pdb
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.AssemblyInfoInputs.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.AssemblyInfo.cs
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.csproj.CoreCompileInputs.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\refint\Dreadful Destinies - Sinister Seas.dll
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.pdb
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\Dreadful Destinies - Sinister Seas.genruntimeconfig.cache
+C:\Users\yherf\OneDrive\Desktop\Game P\Dreadful Destinies - Sinister Seas\obj\Debug\net8.0\ref\Dreadful Destinies - Sinister Seas.dll
